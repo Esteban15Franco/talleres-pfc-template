@@ -1,7 +1,0 @@
-package taller
-
-class TorresHanoiTest
-{
-
-
-}
