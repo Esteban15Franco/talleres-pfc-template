@@ -4,9 +4,10 @@
 package taller
 
 object App {
-  def main(args: Array[String]): Unit = {
-    println(greeting())
-  }
+    def main(args: Array[String]): Unit = {
+        println(greeting())
+        
+    }
 
-  def greeting(): String = "Hello, world!"
+    def greeting(): String = "Hello, world!"
 }

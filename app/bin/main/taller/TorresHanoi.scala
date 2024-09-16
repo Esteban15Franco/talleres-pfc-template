@@ -1,6 +1,8 @@
+package taller
+
 class TorresHanoi {
-  
-  def movsTorresHanoi(n: Int): BigInt = {
+    
+    def movsTorresHanoi(n: Int): BigInt = {
         if(n ==1) 1
         else 2 * movsTorresHanoi(n-1) + 1
     }
