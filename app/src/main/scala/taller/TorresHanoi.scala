@@ -1,5 +1,7 @@
+package taller
+
 class TorresHanoi {
-  
+
   def movsTorresHanoi(n: Int): BigInt = {
         if(n ==1) 1
         else 2 * movsTorresHanoi(n-1) + 1
@@ -7,7 +9,7 @@ class TorresHanoi {
 
     def torresHanoi(n: Int, t1: Int, t2: Int, t3: Int) : List[(Int, Int)] = {
 
-        //caso base 
+        //caso base
         if(n == 1){
             List((t1, t3))
         }else{
