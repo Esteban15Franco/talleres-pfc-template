@@ -1,8 +1,13 @@
 package taller
 
 class TorresHanoi {
+<<<<<<< HEAD
 
   def movsTorresHanoi(n: Int): BigInt = {
+=======
+    
+    def movsTorresHanoi(n: Int): BigInt = {
+>>>>>>> master
         if(n ==1) 1
         else 2 * movsTorresHanoi(n-1) + 1
     }
