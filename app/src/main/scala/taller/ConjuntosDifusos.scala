@@ -13,6 +13,15 @@ class ConjuntosDifusos {
       else x.toDouble / d
     }
   }
+  def complementoDifuso(conjunto: Set[(Double, Int)]): Set[(Double, Int)] = {
+    val complemento = for (elem <- conjunto) yield {
+      val gradoPertenencia = BigDecimal(1 - elem._1)
+        .setScale(1, BigDecimal.RoundingMode.HALF_UP)
+        .toDouble
+    (gradoPertenencia, elem._2)
+  }
+  complemento.toSet
+  }
 
     def igualdad(cd1: ConjDifuso, cd2: ConjDifuso, rango: Range): Boolean = {
     rango.forall(elem => pertenece(elem, cd1) == pertenece(elem, cd2))
