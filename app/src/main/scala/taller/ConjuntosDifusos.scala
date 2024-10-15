@@ -23,6 +23,16 @@ class ConjuntosDifusos {
   complemento.toSet
   }
 
+  def inclusion( cd1: Set[(Double, Int)], cd2: Set[(Double, Int)]) : Boolean = {
+    val mapaCd2 = cd2.toMap
+    cd1.forall { case (grado1, elemento) =>
+      mapaCd2.get(elemento) match {
+        case Some(grado2) => grado1 <= grado2 
+        case None => false 
+      }
+    }
+  }
+
     def igualdad(cd1: ConjDifuso, cd2: ConjDifuso, rango: Range): Boolean = {
     rango.forall(elem => pertenece(elem, cd1) == pertenece(elem, cd2))
     } 
