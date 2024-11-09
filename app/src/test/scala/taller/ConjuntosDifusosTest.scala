@@ -72,4 +72,31 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     assert(conjDifuso.pertenece(6, interseccionConjunto) === 0.0)
   }
 
+  test("Test de complemento - Elemento con grado de pertenencia completo") {
+    val conjunto = conjDifuso.grande(5)
+    val complementoConjunto = conjDifuso.complemento(conjunto)
+    assert(conjDifuso.pertenece(5, complementoConjunto) === 0.0)
+    assert(conjDifuso.pertenece(6, complementoConjunto) === 0.0)
+  }
+
+  test("Test de complemento - Elemento con grado de pertenencia parcial") {
+    val conjunto = conjDifuso.grande(5)
+    val complementoConjunto = conjDifuso.complemento(conjunto)
+    assert(conjDifuso.pertenece(3, complementoConjunto) === 1.0 - (3.0 / 5))
+    assert(conjDifuso.pertenece(4, complementoConjunto) === 1.0 - (4.0 / 5))
+  }
+
+  test("Test de complemento - Elemento fuera del rango del conjunto original") {
+    val conjunto = conjDifuso.grande(5)
+    val complementoConjunto = conjDifuso.complemento(conjunto)
+    assert(conjDifuso.pertenece(10, complementoConjunto) === 0.0)
+  }
+
+  test("Test de inclusión - Conjunto grande(4) incluido en grande(5)") {
+    val conjunto1 = conjDifuso.grande(4)
+    val conjunto2 = conjDifuso.grande(5)
+
+    assert(!conjDifuso.inclusion(conjunto1, conjunto2, 1 to 5))  //tambien odie el test
+  }
+
 }

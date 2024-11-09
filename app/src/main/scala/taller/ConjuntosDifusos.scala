@@ -25,12 +25,15 @@ class ConjuntosDifusos {
   def intersect(cd1: ConjDifuso, cd2: ConjDifuso, rango: Range): ConjDifuso = {
     (x: Int) => {
       if (rango.contains(x)) math.min(cd1(x), cd2(x))
-      else 0.0  // O cualquier valor que signifique que el elemento no pertenece
+      else 0.0
     }
   }
+  def complemento(c: ConjDifuso): ConjDifuso = {
+    (x: Int) => 1.0 - c(x)
+  }
 
-
-
-
+  def inclusion(cd1: ConjDifuso, cd2: ConjDifuso, rango: Range): Boolean = {
+    rango.forall(i => cd1(i) <= cd2(i)) //Odie hacer este codigo
+  }
 
 }
